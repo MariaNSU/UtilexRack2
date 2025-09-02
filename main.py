@@ -9,8 +9,11 @@ from Holding.IntHoldingTab import IntHoldingTab
 from Holding.FloatHoldingTab import FloatHoldingTab
 
 class UtilexMainWindow(QMainWindow):
-    def __init__(self):
+    def __init__(self, rack_name):
         super().__init__()
+
+        self.rack_name = rack_name
+
         self.setWindowTitle("Utilex Control Panel")
         self.setGeometry(100, 100, 1200, 800)
 
@@ -24,20 +27,20 @@ class UtilexMainWindow(QMainWindow):
         self.tab_widget.setFont(QFont("Arial", 14, QFont.Bold))
         self.main_layout.addWidget(self.tab_widget)
 
-        self.coil_tab = CoilTab()
+        self.coil_tab = CoilTab(self.rack_name)
         self.tab_widget.addTab(self.coil_tab, "Coil Регистры")
 
-        '''self.int_input_tab = IntInputTab()
+        self.int_input_tab = IntInputTab(self.rack_name)
         self.tab_widget.addTab(self.int_input_tab, "Int Input Регистры")
 
-        self.float_input_tab = FloatInputTab()
+        self.float_input_tab = FloatInputTab(self.rack_name)
         self.tab_widget.addTab(self.float_input_tab, "Float Input Регистры")
 
-        self.holding_tab = IntHoldingTab()
+        self.holding_tab = IntHoldingTab(self.rack_name)
         self.tab_widget.addTab(self.holding_tab, "Int Holding Регистры")
 
-        self.holding_tab = FloatHoldingTab()
-        self.tab_widget.addTab(self.holding_tab, "Float Holding Регистры")'''
+        self.holding_tab = FloatHoldingTab(self.rack_name)
+        self.tab_widget.addTab(self.holding_tab, "Float Holding Регистры")
 
     def load_test_data(self):
         self.int_input_tab.update_register(1, 1)
@@ -74,6 +77,10 @@ if __name__ == "__main__":
                 background: #d0d0d0;
             }
         """)
-    window = UtilexMainWindow()
+    if len(sys.argv) > 1:
+        rack_name = sys.argv[1]
+    else:
+        rack_name = "Rack1"
+    window = UtilexMainWindow(rack_name)
     window.show()
     sys.exit(app.exec_())

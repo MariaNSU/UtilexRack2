@@ -4,9 +4,10 @@ from PyQt5.QtCore import Qt
 
 
 class BaseHoldingTab(QWidget):
-    def __init__(self, title, parent=None):
+    def __init__(self, rack_name, title, parent=None):
         super().__init__(parent)
         self.title = title
+        self.rack_name = rack_name
         self.registers = {}
         self.setup_ui()
 

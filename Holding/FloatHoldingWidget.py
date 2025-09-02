@@ -4,18 +4,11 @@ from Holding.HoldingRegisterWidget import HoldingRegisterWidget
 from EpicsWidgets.EpicsDoubleSpinBox import EpicsDoubleSpinBox
 
 class FloatHoldingWidget(HoldingRegisterWidget):
-    def __init__(self, name, address, restr_ar=None, parent=None):
-        super().__init__(name, address, "float", parent)
+    def __init__(self, base_name, description, address, data_type, restr_ar=None, parent=None):
+        super().__init__(base_name, description, address, data_type, parent)
         if restr_ar is None:
             restr_ar = [-1000, 1000]
-        self.create_double_spinbox(restr_ar)
-
-    def create_double_spinbox(self, restr_ar=None):
-        if restr_ar is None:
-            restr_ar = [-1000, 1000]
-
-        self.spinbox = EpicsDoubleSpinBox(self.name, restr_ar)
-
+        self.spinbox = EpicsDoubleSpinBox(self.base_name, restr_ar)
 
         self.layout.addWidget(self.spinbox)
 

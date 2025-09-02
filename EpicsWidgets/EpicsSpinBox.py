@@ -1,29 +1,25 @@
-from PyQt5.QtWidgets import QDoubleSpinBox
+from PyQt5.QtWidgets import QSpinBox
 from PyQt5.QtGui import QFont
 
 from Auxillary.cs_epics import WrappedPV
 
 
-class EpicsDoubleSpinBox(QDoubleSpinBox):
+class EpicsSpinBox(QSpinBox):
     def __init__(self, cname, ps_restr):
         super().__init__()
         self.editingFinished.connect(self.ps_send)
-        self.setMaximum(ps_restr[1])
-        self.setMinimum(ps_restr[0])
-        self.setSingleStep(0.001)
-        self.setDecimals(3)
-
+        self.setRange(ps_restr[0], ps_restr[1])
         self.setFont(QFont("Arial", 10))
         self.setStyleSheet("""
-                    QDoubleSpinBox {
-                        background-color: #e8f8f5;
-                        border: 2px solid #7dcea0;
+                    QSpinBox {
+                        background-color: #e8f6f3;
+                        border: 2px solid #76d7c4;
                         border-radius: 4px;
                         padding: 5px;
                         min-width: 100px;
                     }
-                    QDoubleSpinBox:hover {
-                        border: 2px solid #52be80;
+                    QSpinBox:hover {
+                        border: 2px solid #48c9b0;
                     }
                 """)
 

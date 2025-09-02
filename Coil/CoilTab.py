@@ -6,9 +6,10 @@ from Auxillary.json_parsing import get_config_by_type
 
 class CoilTab(QWidget):
 
-    def __init__(self, parent=None):
+    def __init__(self, rack_name, parent=None):
         super().__init__(parent)
         self.registers = {}
+        self.rack_name = rack_name
         self.setup_ui()
         self.create_coil_registers()
 
@@ -35,7 +36,7 @@ class CoilTab(QWidget):
         self.main_layout.addWidget(self.scroll)
 
     def create_coil_registers(self):
-        coil_registers = get_config_by_type('coil', 'Rack1')
+        coil_registers = get_config_by_type('coil', self.rack_name)
 
         for register_info in coil_registers:
             base_name = register_info['base_name']

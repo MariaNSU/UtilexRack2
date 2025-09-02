@@ -9,7 +9,7 @@ class CoilRegisterWidget(QWidget):
         super().__init__(parent)
         self.description = description
         self.address = address
-
+        self.base_name = base_name
         self.setup_ui()
 
     def setup_ui(self):
@@ -26,7 +26,7 @@ class CoilRegisterWidget(QWidget):
         self.info_label.setStyleSheet("color: #7f8c8d;")
         self.info_label.setFixedWidth(160)
 
-        self.button = CoilButton()
+        self.button = CoilButton(self.base_name)
 
         self.layout.addWidget(self.name_label)
         self.layout.addWidget(self.info_label)

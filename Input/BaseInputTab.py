@@ -6,9 +6,10 @@ from Input.InputRegisterWidget import InputRegisterWidget
 
 class BaseInputTab(QWidget):
 
-    def __init__(self, title, parent=None):
+    def __init__(self, rack_name, title, parent=None):
         super().__init__(parent)
         self.title = title
+        self.rack_name = rack_name
         self.registers = {}
         self.setup_ui()
 
@@ -34,8 +35,8 @@ class BaseInputTab(QWidget):
         self.main_layout.addWidget(self.title_label)
         self.main_layout.addWidget(self.scroll)
 
-    def add_register(self, name, address, data_type):
-        register_widget = InputRegisterWidget(name, address, data_type)
+    def add_register(self, base_name, description, address, data_type):
+        register_widget = InputRegisterWidget(base_name, description, address, data_type)
         self.registers[address] = register_widget
         self.container_layout.addWidget(register_widget)
 

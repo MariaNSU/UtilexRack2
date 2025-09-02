@@ -1,23 +1,24 @@
 from Holding.BaseHoldingTab import BaseHoldingTab
 from Holding.IntHoldingWidget import IntHoldingWidget
+from Auxillary.json_parsing import get_config_by_type
 
 
 class IntHoldingTab(BaseHoldingTab):
-    def __init__(self, parent=None):
-        super().__init__("INT Holding Регистры", parent)
+    def __init__(self, rack_name, parent=None):
+        super().__init__(rack_name, "INT Holding Регистры", parent)
         self.create_int_registers()
 
     def create_int_registers(self):
-        int_registers = [
-            ("Скорость вентилятора", 303),
-            ("Управление вентилятором", 304)
-        ]
+        int_holding_registers = get_config_by_type('holding_int16', self.rack_name)
 
-        for name, address in int_registers:
-            self.add_register(name, address)
+        for register_info in int_holding_registers:
+            base_name = register_info['base_name']
+            description = register_info['description']
+            address = register_info['address']
+            self.add_register(base_name, description, address, 'int')
 
-    def add_register(self, name, address):
-        register_widget = IntHoldingWidget(name, address)
+    def add_register(self, base_name, description, address, data_type):
+        register_widget = IntHoldingWidget(base_name, description, address, data_type)
         self.registers[address] = register_widget
         self.container_layout.addWidget(register_widget)
 

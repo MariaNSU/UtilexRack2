@@ -1,32 +1,24 @@
 from Holding.BaseHoldingTab import BaseHoldingTab
 from Holding.FloatHoldingWidget import FloatHoldingWidget
-
+from Auxillary.json_parsing import get_config_by_type
 
 class FloatHoldingTab(BaseHoldingTab):
 
-    def __init__(self, parent=None):
-        super().__init__("FLOAT Holding Регистры", parent)
+    def __init__(self, rack_name, parent=None):
+        super().__init__(rack_name, "FLOAT Holding Регистры", parent)
         self.create_float_registers()
 
     def create_float_registers(self):
-        float_registers = [
-            ("MY-DEVICE-PREFIX:AO", 301),
-            ("Аварийный порог влажности", 305),
-            ("Аварийный порог температуры", 307),
-            ("Предупредит порог температуры", 309),
-            ("Предупредит порог влажности", 311),
-            ("P", 314),
-            ("I", 316),
-            ("D", 318),
-            ("Аварийный порог температуры воды", 320),
-            ("Предупредит порог Т воды", 322)
-        ]
+        float_holding_registers = get_config_by_type('holding_float', self.rack_name)
 
-        for name, address in float_registers:
-            self.add_register(name, address)
+        for register_info in float_holding_registers:
+            base_name = register_info['base_name']
+            description = register_info['description']
+            address = register_info['address']
+            self.add_register(base_name, description, address, 'float')
 
-    def add_register(self, name, address):
-        register_widget = FloatHoldingWidget(name, address)
+    def add_register(self, base_name, description, address, data_type):
+        register_widget = FloatHoldingWidget(base_name, description, address, data_type)
         self.registers[address] = register_widget
         self.container_layout.addWidget(register_widget)
 
