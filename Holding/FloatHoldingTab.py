@@ -1,5 +1,5 @@
 from Holding.BaseHoldingTab import BaseHoldingTab
-from Holding.FloatHolfingWidget import FloatHoldingWidget
+from Holding.FloatHoldingWidget import FloatHoldingWidget
 
 
 class FloatHoldingTab(BaseHoldingTab):

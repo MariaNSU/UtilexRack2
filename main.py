@@ -27,7 +27,7 @@ class UtilexMainWindow(QMainWindow):
         self.coil_tab = CoilTab()
         self.tab_widget.addTab(self.coil_tab, "Coil Регистры")
 
-        self.int_input_tab = IntInputTab()
+        '''self.int_input_tab = IntInputTab()
         self.tab_widget.addTab(self.int_input_tab, "Int Input Регистры")
 
         self.float_input_tab = FloatInputTab()
@@ -37,7 +37,7 @@ class UtilexMainWindow(QMainWindow):
         self.tab_widget.addTab(self.holding_tab, "Int Holding Регистры")
 
         self.holding_tab = FloatHoldingTab()
-        self.tab_widget.addTab(self.holding_tab, "Float Holding Регистры")
+        self.tab_widget.addTab(self.holding_tab, "Float Holding Регистры")'''
 
     def load_test_data(self):
         self.int_input_tab.update_register(1, 1)
@@ -75,6 +75,5 @@ if __name__ == "__main__":
             }
         """)
     window = UtilexMainWindow()
-    window.load_test_data()
     window.show()
     sys.exit(app.exec_())

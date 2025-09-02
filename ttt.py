@@ -3,11 +3,13 @@ from softioc import softioc, builder
 import cothread
 
 # Set the record prefix
-builder.SetDeviceName("MY-DEVICE-PREFIX")
+builder.SetDeviceName("Rack1")
 
 # Create some records
+# Rack1-AC_State_Coil
 ai = builder.aIn('AI', initial_value=5)
 ao = builder.aOut('AO', initial_value=12.45, on_update=lambda v: ai.set(v))
+bi = builder.boolOut('AC_State_Coil', '0', '1', initial_value=0)
 
 # Boilerplate get the IOC started
 builder.LoadDatabase()

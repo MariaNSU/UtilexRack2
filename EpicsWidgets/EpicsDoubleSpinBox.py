@@ -2,7 +2,7 @@ from PyQt5.QtWidgets import QDoubleSpinBox
 from PyQt5.QtCore import Qt, QLocale
 from PyQt5.QtGui import QFont
 
-from Aux.cs_epics import WrappedPV
+from Auxillary.cs_epics import WrappedPV
 
 
 class EpicsDoubleSpinBox(QDoubleSpinBox):
@@ -13,8 +13,6 @@ class EpicsDoubleSpinBox(QDoubleSpinBox):
         self.setMinimum(ps_restr[0])
         self.setSingleStep(0.001)
         self.setDecimals(3)
-        #self.setLocale(QLocale.c())
-        #self.setAlignment(Qt.AlignHCenter)
 
         self.setFont(QFont("Arial", 10))
         self.setStyleSheet("""

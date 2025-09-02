@@ -1,0 +1,381 @@
+{
+  "coil": [
+    {
+      "base_name": "AC_State_Coil",
+      "description": "Состояние кондиционера",
+      "address": 201
+    }
+  ],
+
+  "input_int16": [
+    {
+      "base_name": "AC_State",
+      "description": "Состояние кондиционера",
+      "address": 1
+    },
+    {
+      "base_name": "Evaporator_Fans",
+      "description": "Вентиляторы испарителя",
+      "address": 6
+    },
+    {
+      "base_name": "Days_To_Maintenance",
+      "description": "Дней до обслуживания",
+      "address": 15
+    },
+    {
+      "base_name": "Emergency_Relay",
+      "description": "Аварийное реле",
+      "address": 18
+    },
+    {
+      "base_name": "Temp_HC_Sensor_Alarm",
+      "description": "Авария датчика ТХК",
+      "address": 19
+    },
+    {
+      "base_name": "Temp_GC_Sensor_Alarm",
+      "description": "Авария датчика ТГК",
+      "address": 20
+    },
+    {
+      "base_name": "Water_Inlet_Temp_Sensor_Alarm",
+      "description": "Авария датчика Т вода вход",
+      "address": 21
+    },
+    {
+      "base_name": "Water_Outlet_Temp_Sensor_Alarm",
+      "description": "Авария датчика Т вода выход",
+      "address": 22
+    },
+    {
+      "base_name": "Airflow_Alarm",
+      "description": "Авария потока воздуха",
+      "address": 23
+    },
+    {
+      "base_name": "Smoke_Detection",
+      "description": "Задымление",
+      "address": 24
+    },
+    {
+      "base_name": "CleverView_Connect_Fault",
+      "description": "Авария связи c CleverView",
+      "address": 25
+    },
+    {
+      "base_name": "Maintenance_Alarm",
+      "description": "Авария обслуживания",
+      "address": 26
+    },
+    {
+      "base_name": "Temperature_Alarm",
+      "description": "Авария температуры",
+      "address": 27
+    },
+    {
+      "base_name": "Drain_Pump_Alarm",
+      "description": "Авария помпы дренажа",
+      "address": 28
+    },
+    {
+      "base_name": "Front_Door_Left_Status",
+      "description": "Дверь передняя стойка левая",
+      "address": 45
+    },
+    {
+      "base_name": "Back_Door_Left_Status",
+      "description": "Дверь задняя стойка левая",
+      "address": 46
+    },
+    {
+      "base_name": "Upper_Left_Door_Status",
+      "description": "Дверь левая верхняя",
+      "address": 47
+    },
+    {
+      "base_name": "Lower_Left_Door_Status",
+      "description": "Дверь левая нижняя",
+      "address": 48
+    },
+    {
+      "base_name": "Upper_Right_Door_Status",
+      "description": "Дверь правая верхняя",
+      "address": 49
+    },
+    {
+      "base_name": "Lower_Right_Door_Status",
+      "description": "Дверь правая нижняя",
+      "address": 50
+    },
+    {
+      "base_name": "Door_FanCoil_Front",
+      "description": "Дверь фанкойл передняя",
+      "address": 51
+    },
+    {
+      "base_name": "Fancoil_Rear_Door_Status",
+      "description": "Дверь фанкойл задняя",
+      "address": 52
+    },
+    {
+      "base_name": "Back_Door_Right_Status",
+      "description": "Дверь задняя стойка правая",
+      "address": 69
+    },
+    {
+      "base_name": "Front_Door_Right_Status",
+      "description": "Дверь передняя стойка правая",
+      "address": 70
+    },
+    {
+      "base_name": "Humidity_Alarm",
+      "description": "Авария Влажности",
+      "address": 71
+    },
+    {
+      "base_name": "Valve_Opening_Percent",
+      "description": "% открытия клапана",
+      "address": 72
+    },
+    {
+      "base_name": "Alarm_Count",
+      "description": "Количество аварий",
+      "address": 73
+    },
+    {
+      "base_name": "Water_Temp_Alarm",
+      "description": "Авария Т воды",
+      "address": 86
+    },
+    {
+      "base_name": "Temperature_Warning",
+      "description": "Предупреждение температура",
+      "address": 87
+    },
+    {
+      "base_name": "Humidity_Warning",
+      "description": "Предупреждение влажность",
+      "address": 88
+    },
+    {
+      "base_name": "Water_Temp_Warning",
+      "description": "Предупреждение Т воды",
+      "address": 89
+    }
+  ],
+
+  "input_float": [
+    {
+      "base_name": "Temp_CC",
+      "description": "Температура хк",
+      "address": 2
+    },
+    {
+      "base_name": "Temp_HC",
+      "description": "Температура гк",
+      "address": 4
+    },
+    {
+      "base_name": "Cooling_Power",
+      "description": "Хладопроизводительность",
+      "address": 7
+    },
+    {
+      "base_name": "Temp_Setpoint",
+      "description": "Уставка температуры",
+      "address": 9
+    },
+    {
+      "base_name": "Water_Inlet_Temp",
+      "description": "Температура вода вход",
+      "address": 11
+    },
+    {
+      "base_name": "Water_Outlet_Temp",
+      "description": "Температура вода выход",
+      "address": 13
+    },
+    {
+      "base_name": "Evaporator_Fan_Operating_Time",
+      "description": "Наработка вент.исп.",
+      "address": 16
+    },
+    {
+      "base_name": "Temp_CC_Top_Left",
+      "description": "Темп хк верх стойка левая",
+      "address": 29
+    },
+    {
+      "base_name": "Temp_CC_Mid_Left",
+      "description": "Темп хк средн стойка левая",
+      "address": 31
+    },
+    {
+      "base_name": "Temp_CC_Bottom_Left",
+      "description": "Темп хк низ стойка левая",
+      "address": 33
+    },
+    {
+      "base_name": "Temp_HC_Top_Left",
+      "description": "Темп гк верх стойка левая",
+      "address": 35
+    },
+    {
+      "base_name": "Temp_HC_Mid_Left",
+      "description": "Темп гк средн стойка левая",
+      "address": 37
+    },
+    {
+      "base_name": "Temp_HC_Bottom_Left",
+      "description": "Темп гк низ стойка левая",
+      "address": 39
+    },
+    {
+      "base_name": "Humidity_CC_Left",
+      "description": "Влажность хк стойка левая",
+      "address": 41
+    },
+    {
+      "base_name": "Humidity_HC_Left",
+      "description": "Влажность гк стойка левая",
+      "address": 43
+    },
+    {
+      "base_name": "Temp_CC_Top_Right",
+      "description": "Темп хк верх стойка правая",
+      "address": 53
+    },
+    {
+      "base_name": "Temp_CC_Mid_Right",
+      "description": "Темп хк средн стойка правая",
+      "address": 55
+    },
+    {
+      "base_name": "Temp_CC_Bottom_Right",
+      "description": "Темп хк низ стойка правая",
+      "address": 57
+    },
+    {
+      "base_name": "Temp_HC_Top_Right",
+      "description": "Темп гк верх стойка правая",
+      "address": 59
+    },
+    {
+      "base_name": "Temp_HC_Mid_Right",
+      "description": "Темп гк средн стойка правая",
+      "address": 61
+    },
+    {
+      "base_name": "Temp_HC_Bottom_Right",
+      "description": "Темп гк низ стойка правая",
+      "address": 63
+    },
+    {
+      "base_name": "Humidity_CC_Right",
+      "description": "Влажность хк стойка правая",
+      "address": 65
+    },
+    {
+      "base_name": "Humidity_HC_Right",
+      "description": "Влажность гк стойка правая",
+      "address": 67
+    },
+    {
+      "base_name": "Temp_Alarm_Threshold",
+      "description": "Аварийный порог температуры",
+      "address": 74
+    },
+    {
+      "base_name": "Humidity_Alarm_Threshold",
+      "description": "Аварийный порог влажности",
+      "address": 76
+    },
+    {
+      "base_name": "Temp_Warning_Threshold",
+      "description": "Предупредит порог температуры",
+      "address": 78
+    },
+    {
+      "base_name": "Humidity_Warning_Threshold",
+      "description": "Предупредит порог влажности",
+      "address": 80
+    },
+    {
+      "base_name": "Water_Temp_Alarm_Threshold",
+      "description": "Аварийный порог температуры воды",
+      "address": 82
+    },
+    {
+      "base_name": "Water_Temp_Warning_Threshold",
+      "description": "Предупредит порог Т воды",
+      "address": 84
+    }
+  ],
+
+  "holding_int16": [
+    {
+      "base_name": "Fan_Speed_Holding",
+      "description": "Скорость вентилятора",
+      "address": 303
+    },
+    {
+      "base_name": "Fan_Control_Mode_Holding",
+      "description": "Управление вентилятором",
+      "address": 304
+    }
+  ],
+
+  "holding_float": [
+    {
+      "base_name": "Temp_Setpoint_Holding",
+      "description": "Уставка температуры",
+      "address": 301
+    },
+    {
+      "base_name": "Humidity_Alarm_Threshold_Holding",
+      "description": "Аварийный порог влажности",
+      "address": 305
+    },
+    {
+      "base_name": "Temp_Alarm_Threshold_Holding",
+      "description": "Аварийный порог температуры",
+      "address": 307
+    },
+    {
+      "base_name": "Temp_Warning_Threshold_Holding",
+      "description": "Предупредит порог температуры",
+      "address": 309
+    },
+    {
+      "base_name": "Humidity_Warning_Threshold_Holding",
+      "description": "Предупредит порог влажности",
+      "address": 311
+    },
+    {
+      "base_name": "P_Register_Holding",
+      "description": "P",
+      "address": 314
+    },
+    {
+      "base_name": "I_Register_Holding",
+      "description": "I",
+      "address": 316
+    },
+    {
+      "base_name": "D_Register_Holding",
+      "description": "D",
+      "address": 318
+    },
+    {
+      "base_name": "Water_Temp_Alarm_Threshold_Holding",
+      "description": "Аварийный порог температуры воды",
+      "address": 320
+    },
+    {
+      "base_name": "Water_Temp_Warning_Threshold_Holding",
+      "description": "Предупредит порог Т воды",
+      "address": 322
+    }
+  ]
+}

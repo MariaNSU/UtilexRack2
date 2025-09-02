@@ -1,13 +1,13 @@
 from PyQt5.QtWidgets import QWidget, QHBoxLayout, QLabel
 from PyQt5.QtGui import QFont
-from Coil.CoilButton import CoilButton
+from Buttons.CoilButton import CoilButton
 
 
 class CoilRegisterWidget(QWidget):
 
-    def __init__(self, name, address, parent=None):
+    def __init__(self, base_name, description, address, parent=None):
         super().__init__(parent)
-        self.name = name
+        self.description = description
         self.address = address
 
         self.setup_ui()
@@ -16,7 +16,7 @@ class CoilRegisterWidget(QWidget):
         self.layout = QHBoxLayout(self)
         self.layout.setContentsMargins(10, 5, 10, 5)
 
-        self.name_label = QLabel(self.name)
+        self.name_label = QLabel(self.description)
         self.name_label.setFont(QFont("Arial", 10))
         self.name_label.setStyleSheet("color: #2c3e50;")
         self.name_label.setMinimumWidth(200)

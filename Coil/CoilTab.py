@@ -2,7 +2,7 @@ from PyQt5.QtWidgets import QWidget, QVBoxLayout, QLabel, QScrollArea, QHBoxLayo
 from PyQt5.QtCore import Qt
 from PyQt5.QtGui import QFont
 from Coil.CoilRegisterWidget import CoilRegisterWidget
-
+from Auxillary.json_parsing import get_config_by_type
 
 class CoilTab(QWidget):
 
@@ -35,18 +35,19 @@ class CoilTab(QWidget):
         self.main_layout.addWidget(self.scroll)
 
     def create_coil_registers(self):
-        coil_registers = [
-            ("Состояние кондиционера", 201)
-        ]
+        coil_registers = get_config_by_type('coil', 'Rack1')
 
-        for name, address in coil_registers:
-            self.add_register(name, address)
+        for register_info in coil_registers:
+            base_name = register_info['base_name']
+            description = register_info['description']
+            address = register_info['address']
+            self.add_register(base_name, description, address)
 
         if len(self.registers) == 1:
             self.container_layout.addStretch()
 
-    def add_register(self, name, address):
-        register_widget = CoilRegisterWidget(name, address)
+    def add_register(self, base_name, description, address):
+        register_widget = CoilRegisterWidget(base_name, description, address)
         self.registers[address] = register_widget
         self.container_layout.addWidget(register_widget)
 

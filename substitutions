@@ -1,0 +1,115 @@
+from st.cmd
+
+
+epicsEnvSet("SA", 1)
+epicsEnvSet("RG", 1)
+epicsEnvSet("RK", 1)
+epicsEnvSet("SYSTEM", "CS")
+epicsEnvSet("CONTROLLER_NAME", "UTILEX")
+
+iocshLoad("${TOP}/iocBoot/${IOC}/stand_init.cmd", "IP_ADDR=127.0.0.1:2502, RACK=$(SYSTEM)-SA$(SA):RG$(RG):RK$(RK):$(CONTROLLER_NAME)")
+
+
+
+#### Coil register ####
+file "db/coil.template" {pattern
+{NAME,                    OFFSET,    PORT              }
+{"$(RACK)-AC_State_Coil", 0,         "$(RACK)-CoilRead"}
+}
+
+
+#### INT Holding register ####
+file "db/int_holding.template" {pattern
+{NAME,                               OFFSET,  PORT                     }
+{"$(RACK)-Fan_Speed_Holding",        0,       "$(RACK)-IntHoldingWrite"}
+{"$(RACK)-Fan_Control_Mode_Holding", 1,       "$(RACK)-IntHoldingWrite"}
+}
+
+## Alarm - авария
+
+
+#### FLOAT Holding register ####
+file "db/float_holding.template" {pattern
+{NAME,                                           OFFSET,   PORT                       }
+{"$(RACK)-Temp_Setpoint_Holding",                0,        "$(RACK)-FloatHoldingWrite"}
+{"$(RACK)-Humidity_Alarm_Threshold_Holding",     4,        "$(RACK)-FloatHoldingWrite"}
+{"$(RACK)-Temp_Alarm_Threshold_Holding",         6,        "$(RACK)-FloatHoldingWrite"}
+{"$(RACK)-Temp_Warning_Threshold_Holding",       8,        "$(RACK)-FloatHoldingWrite"}
+{"$(RACK)-Humidity_Warning_Threshold_Holding",   10,       "$(RACK)-FloatHoldingWrite"}
+{"$(RACK)-P_Register_Holding",                   13,       "$(RACK)-FloatHoldingWrite"}
+{"$(RACK)-I_Register_Holding",                   15,       "$(RACK)-FloatHoldingWrite"}
+{"$(RACK)-D_Register_Holding",                   17,       "$(RACK)-FloatHoldingWrite"}
+{"$(RACK)-Water_Temp_Alarm_Threshold_Holding",   19,       "$(RACK)-FloatHoldingWrite"}
+{"$(RACK)-Water_Temp_Warning_Threshold_Holding", 20,       "$(RACK)-FloatHoldingWrite"}
+}
+
+
+#### INT Input register ####
+file "db/int_input.template" {pattern
+{NAME,                                     OFFSET,   PORT                  }
+{"$(RACK)-AC_State",                       0,        "$(RACK)-IntInputRead"}
+{"$(RACK)-Evaporator_Fans",                5,        "$(RACK)-IntInputRead"}
+{"$(RACK)-Days_To_Maintenance",            14,       "$(RACK)-IntInputRead"}
+{"$(RACK)-Emergency_Relay",                17,       "$(RACK)-IntInputRead"}
+{"$(RACK)-Temp_HC_Sensor_Alarm",           18,       "$(RACK)-IntInputRead"}
+{"$(RACK)-Temp_GC_Sensor_Alarm",           19,       "$(RACK)-IntInputRead"}
+{"$(RACK)-Water_Inlet_Temp_Sensor_Alarm",  20,       "$(RACK)-IntInputRead"}
+{"$(RACK)-Water_Outlet_Temp_Sensor_Alarm", 21,       "$(RACK)-IntInputRead"}
+{"$(RACK)-Airflow_Alarm",                  22,       "$(RACK)-IntInputRead"}
+{"$(RACK)-Smoke_Detection",                23,       "$(RACK)-IntInputRead"}
+{"$(RACK)-CleverView_Connect_Fault",       24,       "$(RACK)-IntInputRead"}
+{"$(RACK)-Maintenance_Alarm",              25,       "$(RACK)-IntInputRead"}
+{"$(RACK)-Temperature_Alarm",              26,       "$(RACK)-IntInputRead"}
+{"$(RACK)-Drain_Pump_Alarm",               27,       "$(RACK)-IntInputRead"}
+{"$(RACK)-Front_Door_Left_Status",         44,       "$(RACK)-IntInputRead"}
+{"$(RACK)-Back_Door_Left_Status",          45,       "$(RACK)-IntInputRead"}
+{"$(RACK)-Upper_Left_Door_Status",         46,       "$(RACK)-IntInputRead"}
+{"$(RACK)-Lower_Left_Door_Status",         47,       "$(RACK)-IntInputRead"}
+{"$(RACK)-Upper_Right_Door_Status",        48,       "$(RACK)-IntInputRead"}
+{"$(RACK)-Lower_Right_Door_Status",        49,       "$(RACK)-IntInputRead"}
+{"$(RACK)-Fancoil_Front_Door_Status",      50,       "$(RACK)-IntInputRead"}
+{"$(RACK)-Fancoil_Rear_Door_Status",       51,       "$(RACK)-IntInputRead"}
+{"$(RACK)-Back_Door_Right_Status",         68,       "$(RACK)-IntInputRead"}
+{"$(RACK)-Front_Door_Right_Status",        69,       "$(RACK)-IntInputRead"}
+{"$(RACK)-Humidity_Alarm",                 70,       "$(RACK)-IntInputRead"}
+{"$(RACK)-Valve_Opening_Percent",          71,       "$(RACK)-IntInputRead"}
+{"$(RACK)-Alarm_Count",                    72,       "$(RACK)-IntInputRead"}
+{"$(RACK)-Water_Temp_Alarm",               85,       "$(RACK)-IntInputRead"}
+{"$(RACK)-Temperature_Warning",            86,       "$(RACK)-IntInputRead"}
+{"$(RACK)-Humidity_Warning",               87,       "$(RACK)-IntInputRead"}
+{"$(RACK)-Water_Temp_Warning",             88,       "$(RACK)-IntInputRead"}
+}
+
+#### FLOAT Input register ####
+file "db/float_input.template" {pattern
+{NAME,                                    OFFSET,    PORT                    }
+{"$(RACK)-Temp_CC",                       0,         "$(RACK)-FloatInputRead"} ## CC - cold camera
+{"$(RACK)-Temp_HC",                       2,         "$(RACK)-FloatInputRead"} ## HC - hot camera
+{"$(RACK)-Cooling_Power",                 5,         "$(RACK)-FloatInputRead"}
+{"$(RACK)-Temp_Setpoint",                 7,         "$(RACK)-FloatInputRead"}
+{"$(RACK)-Water_Inlet_Temp",              9,         "$(RACK)-FloatInputRead"}
+{"$(RACK)-Water_Outlet_Temp",             11,        "$(RACK)-FloatInputRead"}
+{"$(RACK)-Evaporator_Fan_Operating_Time", 14,        "$(RACK)-FloatInputRead"}
+{"$(RACK)-Temp_CC_Top_Left",              27,        "$(RACK)-FloatInputRead"}
+{"$(RACK)-Temp_CC_Mid_Left",              29,        "$(RACK)-FloatInputRead"}
+{"$(RACK)-Temp_CC_Bottom_Left",           31,        "$(RACK)-FloatInputRead"}
+{"$(RACK)-Temp_HC_Top_Left",              33,        "$(RACK)-FloatInputRead"}
+{"$(RACK)-Temp_HC_Mid_Left",              35,        "$(RACK)-FloatInputRead"}
+{"$(RACK)-Temp_HC_Bottom_Left",           37,        "$(RACK)-FloatInputRead"}
+{"$(RACK)-Humidity_CC_Left",              39,        "$(RACK)-FloatInputRead"}
+{"$(RACK)-Humidity_HC_Left",              41,        "$(RACK)-FloatInputRead"}
+{"$(RACK)-Temp_CC_Top_Right",             51,        "$(RACK)-FloatInputRead"}
+{"$(RACK)-Temp_CC_Mid_Right",             53,        "$(RACK)-FloatInputRead"}
+{"$(RACK)-Temp_CC_Bottom_Right",          55,        "$(RACK)-FloatInputRead"}
+{"$(RACK)-Temp_HC_Top_Right",             57,        "$(RACK)-FloatInputRead"}
+{"$(RACK)-Temp_HC_Mid_Right",             59,        "$(RACK)-FloatInputRead"}
+{"$(RACK)-Temp_HC_Bottom_Right",          61,        "$(RACK)-FloatInputRead"}
+{"$(RACK)-Humidity_CC_Right",             63,        "$(RACK)-FloatInputRead"}
+{"$(RACK)-Humidity_HC_Right",             65,        "$(RACK)-FloatInputRead"}
+{"$(RACK)-Temp_Alarm_Threshold",          72,        "$(RACK)-FloatInputRead"}
+{"$(RACK)-Humidity_Alarm_Threshold",      74,        "$(RACK)-FloatInputRead"}
+{"$(RACK)-Temp_Warning_Threshold",        76,        "$(RACK)-FloatInputRead"}
+{"$(RACK)-Humidity_Warning_Threshold",    78,        "$(RACK)-FloatInputRead"}
+{"$(RACK)-Water_Temp_Alarm_Threshold",    80,        "$(RACK)-FloatInputRead"}
+{"$(RACK)-Water_Temp_Warning_Threshold",  82,        "$(RACK)-FloatInputRead"}
+}

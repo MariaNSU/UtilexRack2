@@ -1,8 +1,8 @@
-from PyQt5.QtWidgets import QWidget, QHBoxLayout, QLabel, QVBoxLayout, QScrollArea, QPushButton
+from PyQt5.QtWidgets import QWidget, QLabel, QVBoxLayout, QScrollArea
 from PyQt5.QtGui import QFont
 from PyQt5.QtCore import Qt
-from Input.UpdateButton import UpdateButton
-from Holding.SaveButton import SaveButton
+
+
 class BaseHoldingTab(QWidget):
     def __init__(self, title, parent=None):
         super().__init__(parent)
@@ -29,19 +29,8 @@ class BaseHoldingTab(QWidget):
 
         self.scroll.setWidget(self.container)
 
-        self.update_button = UpdateButton()
-        self.update_button.clicked.connect(self.on_update_data)
-
-        self.save_button = SaveButton()
-        self.save_button.clicked.connect(self.on_save_data)
-
-        self.button_layout = QHBoxLayout()
-        self.button_layout.addWidget(self.update_button)
-        self.button_layout.addWidget(self.save_button)
-
         self.main_layout.addWidget(self.title_label)
         self.main_layout.addWidget(self.scroll)
-        self.main_layout.addLayout(self.button_layout)
 
     def on_update_data(self):
         pass
