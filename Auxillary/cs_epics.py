@@ -10,7 +10,7 @@ class WrappedPV(QObject):
     def __init__(self, cname, count=1, **kwargs):
         super().__init__()
         self.pv = PV(cname, callback=self.cs_update, count=count, auto_monitor=True)
-        self.val = 0.0 if count==1 else np.zeros((count, ))
+        self.val = 0 if count==1 else np.zeros((count, ))
         self.name: str = cname
         self.size: int = count
         self.mlen = 0.0

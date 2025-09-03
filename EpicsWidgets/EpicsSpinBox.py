@@ -12,6 +12,7 @@ class EpicsSpinBox(QSpinBox):
         self.setFont(QFont("Arial", 10))
         self.setStyleSheet("""
                     QSpinBox {
+                        color: black;
                         background-color: #e8f6f3;
                         border: 2px solid #76d7c4;
                         border-radius: 4px;

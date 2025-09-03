@@ -16,6 +16,7 @@ class EpicsDoubleSpinBox(QDoubleSpinBox):
         self.setFont(QFont("Arial", 10))
         self.setStyleSheet("""
                     QDoubleSpinBox {
+                        color: black;
                         background-color: #e8f8f5;
                         border: 2px solid #7dcea0;
                         border-radius: 4px;

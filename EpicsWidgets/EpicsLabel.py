@@ -10,7 +10,7 @@ class EpicsLabel(QLabel):
         self.setFont(QFont("Arial", 10, QFont.Bold))
         self.setStyleSheet("""
                     QLabel {
-                        color: #2c3e50;
+                        color: black;
                         background-color: #ecf0f1;
                         padding: 5px 10px;
                         border-radius: 4px;
@@ -26,7 +26,7 @@ class EpicsLabel(QLabel):
     def cs_update(self, chan):
         v = chan.val
         if v is not None:
-            if v != self.value():
+            if str(v) != self.text():
                 self.setText(str(v))
 
     def make_disconnect(self):
