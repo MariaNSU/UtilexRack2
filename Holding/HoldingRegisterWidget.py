@@ -18,14 +18,14 @@ class HoldingRegisterWidget(QWidget):
         self.layout.setContentsMargins(10, 5, 10, 5)
 
         self.name_label = QLabel(self.description)
-        self.name_label.setFont(QFont("Arial", 10))
+        self.name_label.setFont(QFont("Arial", 18))
         self.name_label.setStyleSheet("color: #2c3e50;")
-        self.name_label.setMinimumWidth(200)
+        self.name_label.setFixedWidth(450)
 
         self.info_label = QLabel(f"Адрес: {self.address} | Тип: {self.data_type}")
-        self.info_label.setFont(QFont("Arial", 8))
+        self.info_label.setFont(QFont("Arial", 16))
         self.info_label.setStyleSheet("color: #7f8c8d;")
-        self.info_label.setFixedWidth(180)
+        self.info_label.setFixedWidth(250)
 
         self.layout.addWidget(self.name_label)
         self.layout.addWidget(self.info_label)
@@ -36,3 +36,4 @@ class HoldingRegisterWidget(QWidget):
 
     def set_value(self, value):
         pass
+55

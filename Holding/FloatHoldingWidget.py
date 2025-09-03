@@ -11,6 +11,7 @@ class FloatHoldingWidget(HoldingRegisterWidget):
         self.spinbox = EpicsDoubleSpinBox(self.base_name, restr_ar)
 
         self.layout.addWidget(self.spinbox)
+        self.layout.addStretch()
 
     def get_value(self):
         return self.spinbox.value() if self.spinbox else 0.0

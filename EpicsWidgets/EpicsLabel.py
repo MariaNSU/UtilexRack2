@@ -7,7 +7,7 @@ from Auxillary.cs_epics import WrappedPV
 class EpicsLabel(QLabel):
     def __init__(self, cname):
         super().__init__()
-        self.setFont(QFont("Arial", 10, QFont.Bold))
+        self.setFont(QFont("Arial", 18, QFont.Bold))
         self.setStyleSheet("""
                     QLabel {
                         color: black;

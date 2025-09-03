@@ -11,6 +11,7 @@ class IntHoldingWidget(HoldingRegisterWidget):
         self.spinbox = EpicsSpinBox(self.base_name, restr_ar)
 
         self.layout.addWidget(self.spinbox)
+        self.layout.addStretch()
 
 
     def get_value(self):

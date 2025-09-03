@@ -9,7 +9,7 @@ class CoilButton(QPushButton):
         super().__init__("ВЫКЛ", parent)
         self.setCheckable(True)
         self.setFixedSize(120, 40)
-        self.setFont(QFont("Arial", 10, QFont.Bold))
+        self.setFont(QFont("Arial", 18, QFont.Bold))
         self.update_style()
 
         self.toggled.connect(self.update_style)

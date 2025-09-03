@@ -18,7 +18,7 @@ class CoilTab(QWidget):
         self.main_layout.setContentsMargins(20, 20, 20, 20)
 
         self.title_label = QLabel("Coil Регистры")
-        self.title_label.setFont(QFont("Arial", 16, QFont.Bold))
+        self.title_label.setFont(QFont("Arial", 20, QFont.Bold))
         self.title_label.setStyleSheet("color: #2c3e50; margin-bottom: 20px;")
         self.title_label.setAlignment(Qt.AlignCenter)
 

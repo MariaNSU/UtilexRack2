@@ -10,10 +10,10 @@ class EpicsDoubleSpinBox(QDoubleSpinBox):
         self.editingFinished.connect(self.ps_send)
         self.setMaximum(ps_restr[1])
         self.setMinimum(ps_restr[0])
-        self.setSingleStep(0.001)
-        self.setDecimals(3)
+        self.setSingleStep(0.1)
+        self.setDecimals(2)
 
-        self.setFont(QFont("Arial", 10))
+        self.setFont(QFont("Arial", 18))
         self.setStyleSheet("""
                     QDoubleSpinBox {
                         color: black;

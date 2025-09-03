@@ -80,7 +80,7 @@ if __name__ == "__main__":
     if len(sys.argv) > 1:
         rack_name = sys.argv[1]
     else:
-        rack_name = "Rack1"
+        rack_name = "CS-SA1:RG1:RK1:UTILEX"
     window = UtilexMainWindow(rack_name)
     window.show()
     sys.exit(app.exec_())

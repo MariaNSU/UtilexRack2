@@ -9,7 +9,7 @@ class EpicsSpinBox(QSpinBox):
         super().__init__()
         self.editingFinished.connect(self.ps_send)
         self.setRange(ps_restr[0], ps_restr[1])
-        self.setFont(QFont("Arial", 10))
+        self.setFont(QFont("Arial", 18))
         self.setStyleSheet("""
                     QSpinBox {
                         color: black;
@@ -36,6 +36,7 @@ class EpicsSpinBox(QSpinBox):
     def ps_send(self):
         value = self.value()
         self.chan.set_value(value)
+        print("EpicsSpinBox: ", self.chan.name, " after set_value = ", self.chan.val, "\nExpected value = ", value)
 
     def make_disconnect(self):
         self.chan.disconnect()

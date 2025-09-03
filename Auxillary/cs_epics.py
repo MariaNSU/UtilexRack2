@@ -21,6 +21,8 @@ class WrappedPV(QObject):
         self.valueMeasured.emit(self)
 
     def set_value(self, val):
+        print("WrappedPV: Try to set ", self.name, "to value = ", val)
+        print("WrappedPV: ", self.name, "connection ", self.pv.connected)
         self.pv.put(val)
 
     def __del__(self):
