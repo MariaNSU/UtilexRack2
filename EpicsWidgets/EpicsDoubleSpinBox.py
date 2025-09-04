@@ -2,7 +2,7 @@ from PyQt5.QtWidgets import QDoubleSpinBox
 from PyQt5.QtGui import QFont
 
 from Auxillary.cs_epics import WrappedPV
-
+from Constants.font_sizes import WIDGETS_SIZE
 
 class EpicsDoubleSpinBox(QDoubleSpinBox):
     def __init__(self, cname, ps_restr):
@@ -13,7 +13,7 @@ class EpicsDoubleSpinBox(QDoubleSpinBox):
         self.setSingleStep(0.1)
         self.setDecimals(2)
 
-        self.setFont(QFont("Arial", 18))
+        self.setFont(QFont("Arial", WIDGETS_SIZE))
         self.setStyleSheet("""
                     QDoubleSpinBox {
                         color: black;

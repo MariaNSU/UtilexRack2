@@ -13,7 +13,7 @@ class FloatInputTab(BaseInputTab):
             base_name = register_info['base_name']
             description = register_info['description']
             address = register_info['address']
-            self.add_register(base_name, description, address, 'float')
+            self.add_float_register(base_name, description, address, 'float')
 
     def renew_data(self):
         print("Float Tab Class!")

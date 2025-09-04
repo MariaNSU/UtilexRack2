@@ -15,7 +15,7 @@ class IntInputTab(BaseInputTab):
             base_name = register_info['base_name']
             description = register_info['description']
             address = register_info['address']
-            self.add_register(base_name, description, address, 'int16')
+            self.add_int_register(base_name, description, address, 'int16')
 
     def renew_data(self):
         print("Int Input Tab Class!")

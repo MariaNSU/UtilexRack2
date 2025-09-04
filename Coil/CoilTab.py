@@ -3,7 +3,7 @@ from PyQt5.QtCore import Qt
 from PyQt5.QtGui import QFont
 from Coil.CoilRegisterWidget import CoilRegisterWidget
 from Auxillary.json_parsing import get_config_by_type
-
+from Constants.font_sizes import TITLE_LABEL_SIZE
 class CoilTab(QWidget):
 
     def __init__(self, rack_name, parent=None):
@@ -18,7 +18,7 @@ class CoilTab(QWidget):
         self.main_layout.setContentsMargins(20, 20, 20, 20)
 
         self.title_label = QLabel("Coil Регистры")
-        self.title_label.setFont(QFont("Arial", 20, QFont.Bold))
+        self.title_label.setFont(QFont("Arial", TITLE_LABEL_SIZE, QFont.Bold))
         self.title_label.setStyleSheet("color: #2c3e50; margin-bottom: 20px;")
         self.title_label.setAlignment(Qt.AlignCenter)
 

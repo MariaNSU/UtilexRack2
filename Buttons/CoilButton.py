@@ -1,7 +1,7 @@
 from PyQt5.QtWidgets import QPushButton
 from PyQt5.QtGui import QFont
 from Auxillary.cs_epics import WrappedPV
-
+from Constants.font_sizes import BUTTON_TEXT_SIZE
 
 class CoilButton(QPushButton):
 
@@ -9,7 +9,7 @@ class CoilButton(QPushButton):
         super().__init__("ВЫКЛ", parent)
         self.setCheckable(True)
         self.setFixedSize(120, 40)
-        self.setFont(QFont("Arial", 18, QFont.Bold))
+        self.setFont(QFont("Arial", BUTTON_TEXT_SIZE, QFont.Bold))
         self.update_style()
 
         self.toggled.connect(self.update_style)

@@ -2,6 +2,7 @@ from PyQt5.QtWidgets import QSpinBox
 from PyQt5.QtGui import QFont
 
 from Auxillary.cs_epics import WrappedPV
+from Constants.font_sizes import WIDGETS_SIZE
 
 
 class EpicsSpinBox(QSpinBox):
@@ -9,7 +10,7 @@ class EpicsSpinBox(QSpinBox):
         super().__init__()
         self.editingFinished.connect(self.ps_send)
         self.setRange(ps_restr[0], ps_restr[1])
-        self.setFont(QFont("Arial", 18))
+        self.setFont(QFont("Arial", WIDGETS_SIZE))
         self.setStyleSheet("""
                     QSpinBox {
                         color: black;

@@ -2,12 +2,13 @@ from PyQt5.QtWidgets import QLabel
 from PyQt5.QtGui import QFont
 from PyQt5.QtCore import Qt
 from Auxillary.cs_epics import WrappedPV
+from Constants.font_sizes import WIDGETS_SIZE
 
 
 class EpicsLabel(QLabel):
     def __init__(self, cname):
         super().__init__()
-        self.setFont(QFont("Arial", 18, QFont.Bold))
+        self.setFont(QFont("Arial", WIDGETS_SIZE, QFont.Bold))
         self.setStyleSheet("""
                     QLabel {
                         color: black;
